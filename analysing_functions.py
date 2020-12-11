@@ -1,9 +1,3 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Thu Aug 20 18:42:44 2020
-
-@author: Dibyajyoti
-"""
 import numpy as np
 from scipy import signal
 import matplotlib.pyplot as plt
@@ -11,9 +5,8 @@ import os
 import scipy.io as scio
 import pandas as pd
 from scipy.signal import hilbert
-from scipy.stats import ttest_ind
-from scipy.interpolate import interp1d
 
+"""
 def envelope(signal,fs):
      analytic_signal = hilbert(signal)
      amplitude_envelope = np.abs(analytic_signal)
@@ -21,7 +14,8 @@ def envelope(signal,fs):
      instantaneous_frequency = np.diff(instantaneous_phase) / (2.0*np.pi) * fs
 
      return amplitude_envelope, instantaneous_frequency
-
+"""
+"""
 def butter_bandpass_filter_allchs(data_buffer,fs, low_f, high_f):
     filtered_data = []
     nyq = 0.5 * fs
@@ -43,7 +37,7 @@ def butter_bandpass_filter_allchs(data_buffer,fs, low_f, high_f):
 
     filtered_data = np.array(filtered_data)
     return filtered_data
-
+"""
 def butter_bandpass_filter(data_buffer,fs, low_f, high_f):
     nyq = 0.5 * fs
     lowcut = low_f
@@ -57,6 +51,7 @@ def butter_bandpass_filter(data_buffer,fs, low_f, high_f):
 
     return filtered_data
 
+"""
 def butter_lowpass_filter(data_buffer,fs, low_f):
     nyq = 0.5 * fs
     normal_cutoff = low_f / nyq
@@ -66,7 +61,8 @@ def butter_lowpass_filter(data_buffer,fs, low_f):
     filtered_data = signal.filtfilt(b, a, data_buffer)
 
     return filtered_data
-
+"""
+"""
 def butter_notch_filter(data_buffer,fs):
     nyq = 0.5 * fs
     lowcut = 55.0
@@ -80,7 +76,7 @@ def butter_notch_filter(data_buffer,fs):
     filtered_data = signal.filtfilt(b, a, data_buffer)
 
     return filtered_data
-
+"""
 def bandpower(data, sf, band, window_sec=None, relative=False):
 
     from scipy.signal import welch
